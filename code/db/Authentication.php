@@ -1,5 +1,6 @@
 <?php
 
+include(dirname(__DIR__).'/db/Connection.php');
 
 class Authentication
 {
@@ -26,16 +27,27 @@ class Authentication
 
     }
 
-    public function login(string $email, string $password) : bool
+    public function login(string $username, string $password) : bool
     {
-        $stmt = $this->conn->prepare("SELECT id, username, email FROM users WHERE email= :email and password = :password");
-        $stmt->bindParam(':email', $_POST["loginMail"]);
-        $stmt->bindParam(':password', $_POST["loginPassword"]);
+
+        try{
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username= :username and password = :password");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
         $stmt->execute();
         $user = $stmt->fetch();
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
 
         if ($user) {
-            $userDto = array('user_id' => $user['id'], 'username' => $user['username'], 'email' => $user['email']);
+            $userDto = array('id' => $user['id'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'create_time' => $user['created'],
+                'Kredit' => $user['credit'],
+                'admin' => $user['admin'],);
             $_SESSION['identity'] = $userDto;
             self::$identity = $userDto;
             return true;

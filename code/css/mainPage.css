@@ -72,16 +72,16 @@ header a {
 
 header nav a {
     display: inline-block;
-    color: #f2f2f2;
-    text-align: end;
-    padding: 14px 16px;
-    text-decoration: underline;
+    color: #eeeeee;
     font-size: 18px;
+
 }
 
 header nav a:hover {
-    background-color: white;
-    color:black;
+    background-color: #2a2b28;
+    color:white;
+    border-radius: 16px;
+    text-align: center;
 }
 
 #header-web-title {
@@ -115,7 +115,7 @@ header nav a:hover {
 }
 
 .full-width-wrapper, main {
-    width: 960px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -186,8 +186,6 @@ ul, li {
 }
 
 
-
-
 #footer-newsletter input[type="submit"] {
     width: 100%;
 }
@@ -197,8 +195,6 @@ ul, li {
 }
 
 a {
-    padding-right: 1%;
-    padding-left: 1%;
     font-size: 1.5em;
     height: 3%;
     color: white;
@@ -210,10 +206,12 @@ address{
 
 .left{
     float: left;
+    padding: 1.5%;
 }
 
 .right{
     float: right;
+    padding: 1.5%;
 }
 
 .toolbar {
@@ -223,7 +221,7 @@ address{
     position: fixed;
     background-color: #121212;
     width: 98%;
-    height: 1%;
+    height: 3%;
     z-index: 20;
     border-radius: 10px;
     display: block;
@@ -255,7 +253,7 @@ img{
 .movieList {
     margin-top: 2%;
     margin-left: 3%;
-    height: 95%;
+    height: 98%;
     width: 98%;
     display: flex;
     flex-wrap: wrap;
@@ -271,4 +269,13 @@ a.fill-div {
 
 h1.movieTitle {
     max-height: 80px;
+}
+
+.login-register {
+    text-align: center;
+
+}
+
+.form {
+    width: 40%;
 }

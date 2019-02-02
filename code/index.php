@@ -5,9 +5,21 @@
  * Date: 16.01.2019
  * Time: 16:47
  */
+ob_start();
+session_start();
+
+function __autoload($className)
+{
+    if (file_exists('./class/' . $className . '.php')) {
+        require_once './pages/' . $className . '.php';
+        return true;
+    }
+    return false;
+}
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cz">
 <head>
     <link rel="stylesheet" href="./css/mainPage.css">
 </head>
@@ -26,9 +38,16 @@
 <body>
 
 <div class="body-div">
-    <?php
-    include "./pages/Movies.php"
-    ?>
+    <main>
+        <?php
+        $file = "./pages/" . $_GET["page"] . ".php";
+        if (file_exists($file)) {
+            include $file;
+        } else {
+            include "./pages/HomePage.php";
+        }
+        ?>
+    </main>
 </div>
 
 </body>
@@ -37,24 +56,19 @@
     <div class="full-width-wrapper">
         <div class="flex-wrap">
             <section>
-                <h4> About Me</h4>
                 <ul>
-                    <li><a href="#"> Work with me</a></li>
-                    <li><a href="#"> References</a></li>
                     <li><a href="#"> Contact me</a></li>
-                    <li><a href="#"> Authors</a></li>
-                    <li><a href="#"> Login</a></li>
                 </ul>
             </section>
 
             <section>
                 <h4>Contact</h4>
                 <address>
-                    Honzovo ,s.r.o<br>
-                    Hradec kralove<br>
+                    Lorem Ipsum ,s.r.o<br>
+                    Ipsum lore<br>
                     Česká republika<br>
                     +420 321 569 874<br>
-                    Email:  st49645@student.upce.cz
+                    Email:  lorem@lorem.cz
                 </address>
             </section>
 
@@ -82,7 +96,7 @@
 
     <section>
         <p>
-            CopyLeft - <?= date('Y') ?>
+            CopyLeft - 2018 - <?= date('Y') ?>
             <a href="https://github.com"> </a>
         </p>
     </section>
