@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rezervacefilmu>
+ <Rezervaceid id="830923">
+  <Filmu Nazev="Milada"/>
+  <Sedadlo číslo="13"/>
+  <Sedadlo číslo="14"/>
+  <Sedadlo číslo="15"/>
+  <Sedadlo číslo="0"/>
+  <Sedadlo číslo="0"/>
+ </Rezervaceid>
+ <Rezervaceid id="454811">
+  <Filmu Nazev="Bajkeři"/>
+  <Sedadlo číslo="57"/>
+  <Sedadlo číslo="58"/>
+  <Sedadlo číslo="0"/>
+  <Sedadlo číslo="0"/>
+  <Sedadlo číslo="0"/>
+ </Rezervaceid>
+ <Rezervaceid id="640595">
+  <Filmu Nazev="Milada"/>
+  <Sedadlo číslo="73"/>
+  <Sedadlo číslo="74"/>
+  <Sedadlo číslo="75"/>
+  <Sedadlo číslo="0"/>
+  <Sedadlo číslo="0"/>
+ </Rezervaceid>
+</Rezervacefilmu>

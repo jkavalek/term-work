@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="styly/styly.css" type="text/css">
+    <link rel="stylesheet" href="styly/stylLoginForm.css" type="text/css">
+    <link rel="stylesheet" href="styly/stylFormulare.css" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/registration.js"></script>
+    <script src="js/login.js"></script>
+
+    <style>
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg .tg-lqy6 {
+            text-align: right;
+            vertical-align: top
+        }
+
+        .tg .tg-yw4l {
+            vertical-align: top
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            var id;
+
+            $(document).on("click", ".odstranit", function () {
+                $.post("php/stornoRezervace.php", {cisloRezervace: $(this).attr("id")}, function (data) {
+                    window.location.reload(true);
+                });
+            });
+
+
+            $.post("php/nactiUzivatele.php"
+                , function (data) {
+
+                    var obj = JSON.parse(data);
+
+                    $("#jmeno").html("Jméno: " + obj[0].jmeno);
+                    $("#email").html("E-mail: " + obj[0].email);
+                    $("#telefon").html("Telefon: " + obj[0].telefon);
+                    $("#nameEdit").val(obj[0].jmeno);
+                    $("#emeailEdit").val(obj[0].email);
+                    $("#telefonEdit").val(obj[0].telefon);
+
+
+                });
+
+
+            $("#getXML").click(function () {
+
+                $.post("php/nactiRezervaceDoXML.php", {id: id}, function (data) {
+                    alert("xml vygenerovano");
+                })
+
+
+                /*  var xml = '';
+                  $.post("php/nactiRezervace.php",{id:id}
+                      ,function (data) {
+
+                          var obj = JSON.parse(data);
+                          xml = "<?xml version=1.0 encoding=UTF-8 >";
+                          xml = xml + "\n<RezervaceFilmu>";
+                          for(var i = 0; i < obj.length; i++){
+                              xml = xml + "\n  <Rezervace>";
+                              xml = xml + "\n     <id>" + obj[i].id_rezervace + "</id>";
+                              xml = xml + "\n     <nazevFilmu>" +obj[i].nazevFilmu + "</nazevFilmu>";
+                              xml = xml + "\n     <sedadlo1>" + obj[i].sedadlo1 + "</sedadlo1>";
+                              xml = xml + "\n     <sedadlo2>" + obj[i].sedadlo2 + "</sedadlo2>";
+                              xml = xml + "\n     <sedadlo3>" + obj[i].sedadlo3 + "</sedadlo3>";
+                              xml = xml + "\n     <sedadlo4>" +obj[i].sedadlo4 + "</sedadlo4>";
+                              xml = xml + "\n     <sedadlo5>" +obj[i].sedadlo5 + "</sedadlo5>";
+
+                              xml = xml + "  </Rezervace>";
+                          }
+                        xml = xml + "\n</RezervaceFilmu>";
+                  //alert(xml);
+                      });
+
+
+                  var textFile = null;
+
+                          var data = new Blob([], {type: 'text/xml'});
+
+
+                          if (textFile !== null) {
+                              window.URL.revokeObjectURL(textFile);
+                          }
+
+                          textFile = window.URL.createObjectURL(data);
+
+
+                          alert(textFile);
+                          $("#odkaz").attr("href", textFile);
+                          $("#odkaz").append("href", "http://www.google.com/");
+
+
+
+      */
+
+
+            });
+
+
+            $.post("php/nactiRezervace.php", {id: id}
+                , function (data) {
+
+                    var obj = JSON.parse(data);
+                    for (var i = 0; i < obj.length; i++) {
+
+                        $(".tg").append("<tr>" +
+                            "<td>" + obj[i].id_rezervace + "</td>" +
+                            "<td>" + obj[i].sedadlo1 + "</td>" +
+                            "<td>" + obj[i].sedadlo2 + "</td>" +
+                            "<td>" + obj[i].sedadlo3 + "</td>" +
+                            "<td>" + obj[i].sedadlo4 + "</td>" +
+                            "<td>" + obj[i].sedadlo5 + "</td>" +
+                            "<td>" + obj[i].nazevFilmu + "</td>" +
+                            "<td>" + "<button id='" + obj[i].id_rezervace + "' class = 'odstranit'> stornovat  </button>" + "</td>" +
+
+                            "</tr>");
+                    }
+
+                });
+
+        });
+    </script>
+
+    <title>Title</title>
+</head>
+<body>
+<header>
+
+
+    <div class="header" id="wrapper">
+
+        <div id="first">
+            <div id="logo"></div>
+            <h1 id="headText">Rezervační systém - kino</h1>
+        </div>
+
+        <div id=second>
+
+            <span id="pID">Nepřihlášen</span>
+
+            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'">
+                Přihlásit se
+            </button>
+            <button class="loginBtns" id="odhlasit" onclick="odhlasit()">Odhlásit</button>
+            <a id="stornoRezervace" href="#" style="color:#e1fffa"
+               onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
+
+        </div>
+
+
+    </div>
+
+</header>
+<div class="bodyDiv">
+
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="filmy.html">Filmy</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a class="aktivni">Registrace</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+
+        <h1>Moje udaje: </h1>
+        <div id="mojeUdaje"></div>
+        <p id="jmeno"></p>
+        <p id="email"></p>
+        <p id="telefon"></p>
+
+        <h2>Editace udaje: </h2>
+
+        <form class="form" method="post" action="#">
+
+            <label>Jméno :</label>
+            <input type="text" name="dname" id="nameEdit">
+            <label>Email :</label>
+            <input type="text" name="demail" id="emeailEdit">
+            <label>Telefon :</label>
+            <input type="password" name="password" id="telefonEdit">
+            <label>Heslo :</label>
+            <input type="password" name="password" id="passwordEdit">
+            <label>Heslo znovu :</label>
+            <input type="password" name="cpassword" id="cpasswordEdit">
+            <input type="button" name="register" id="editaceUdaju" value="Změnit údaje">
+        </form>
+
+
+        <h3>Moje rezervace: </h3>
+        <table class="tg">
+            <tr>
+                <th>Číslo rezervace</th>
+                <th>Sedadlo 1</th>
+                <th>Sedadlo 2</th>
+                <th>Sedadlo 3</th>
+                <th>Sedadlo 4</th>
+                <th>Sedadlo 5</th>
+                <th>Film</th>
+            </tr>
+
+        </table>
+
+
+        <button id="getXML" value="XML">XML</button>
+        <a id="odkaz" href="php/output">odkaz</a>
+
+
+        <div id="mojeRezervaceList"></div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

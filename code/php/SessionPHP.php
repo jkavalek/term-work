@@ -5,8 +5,6 @@ session_start();
 $hint = "";
 
 
-
-
 if (isset($_SESSION['uzivatel_email'])) {
 
 

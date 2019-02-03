@@ -1,0 +1,49 @@
+#holder {
+    border-style: solid;
+    border-top-color: red;
+    padding-top: 10px;
+    margin-left: 20%;
+    background-color: white;
+}
+
+#place {
+    position: relative;
+    margin: 7px;
+}
+
+#place a {
+    font-size: 0.6em;
+}
+
+#place li {
+    list-style: none outside none;
+    position: absolute;
+}
+
+#place li:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+#place .seat {
+    background: #4056ff;
+    height: 33px;
+    width: 33px;
+    display: block;
+}
+
+#place .selectedSeat {
+    background: #ff0000;
+}
+
+#place .selectingSeat {
+    background: #dcda42;
+}
+
+#seatDescription li {
+    verticle-align: middle;
+    list-style: none outside none;
+    padding-left: 35px;
+    height: 35px;
+    float: left;
+}

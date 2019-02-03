@@ -24,7 +24,7 @@
 
         <div id="first">
             <div id="logo"></div>
-            <h1 id="headText">Online Videopůjčovna</h1>
+            <h1 id="headText">Rezervační systém - kino</h1>
         </div>
 
         <div id=second>
@@ -37,12 +37,16 @@
             <button class="loginBtns" id="odhlasit" onclick="odhlasit()">Odhlásit</button>
             <a id="stornoRezervace" href="#" style="color:#e1fffa"
                onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
+
         </div>
+
+
     </div>
 
 </header>
 
 <div class="bodyDiv">
+
 
     <nav class="menu">
         <ul>
@@ -56,7 +60,7 @@
     <div class="content">
         <form class="form" method="post" action="#">
             <h2>Registrace</h2>
-            <label>Uživatelské jméno :</label>
+            <label>Jméno :</label>
             <input type="text" name="dname" id="name">
             <label>Email :</label>
             <input type="text" name="demail" id="emeail">
@@ -71,39 +75,41 @@
 
 </div>
 
-    <div id="id01" class="dialog">
-        <form class="dialog-content animate" >
-            <div class="container">
-                <label><b>E-mail</b></label>
-                <input type="text" placeholder="Enter email" name="uemail" id="email" required>
+<div id="id01" class="dialog">
+    <form class="dialog-content animate">
+        <div class="container">
+            <label><b>E-mail</b></label>
+            <input type="text" placeholder="Enter email" name="uemail" id="email" required>
 
-                <label><b>Heslo</b></label>
-                <input type="password" placeholder="Enter heslo" name="uheslo" id="heslo" required>
-
-
-                <button type="button"  id="prihlasit">Prihlasit</button>
-
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Zpět</button>
-
-            </div>
-        </form>
-    </div>
+            <label><b>Heslo</b></label>
+            <input type="password" placeholder="Enter heslo" name="uheslo" id="heslo" required>
 
 
+            <button type="button" id="prihlasit">Prihlasit</button>
+
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Zpět
+            </button>
+
+        </div>
+    </form>
+</div>
 
 
-    <div id="id02" class="dialog">
-        <form class="dialog-content animate" >
-            <div class="container">
+<div id="id02" class="dialog">
+    <form class="dialog-content animate">
+        <div class="container">
 
-                <label><b>Zadejte číslo rezervace</b></label>
-                <input type="text"  name="uemail" id="inputStornoRezervace" required>
+            <label><b>Zadejte číslo rezervace</b></label>
+            <input type="text" name="uemail" id="inputStornoRezervace" required>
 
-                <button type="button"  id="stornovat">Stornovat</button>
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Zpět</button>
+            <button type="button" id="stornovat">Stornovat</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
+                Zpět
+            </button>
 
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
