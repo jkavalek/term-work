@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <link rel="stylesheet" href="styly/stylLoginForm.css" type="text/css">
+    <link rel="stylesheet" href="styly/stylFormulare.css" type="text/css">
+    <link rel="stylesheet" href="styly/styly.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/login.js"></script>
+    <title>Title</title>
+    
+    <style>
+
+        #slideDown{
+            background-color: black;
+            width: 100%;
+            height: 100px;
+        }
+
+        .rollovaci{
+            display: none;
+        }
+    </style>
+
+
+    <script>
+
+        window.onload = function () {
+
+           // nactiFilmy()
+
+        };
+
+
+
+
+        $(document).ready(function() {
+
+                $.post("php/filmy.php",function (data) {
+
+                   var obj = JSON.parse(data);
+
+                    for(var i = 0; i < obj.length; i++){
+
+
+                        $("#film").append("<br>")
+                            .append("<h2> "+ obj[i].nazev +"</h2>")
+
+                            .append("<p>" + obj[i].popis + "</p>")
+                            .append("<img width=420 height='480' src= img/Movies/" + obj[i].img_path + " frameborder=0 " +
+                                " alt='" + obj[i].nazev + " image '/>")
+
+                            .append("<p>" + "Rok vydání: " + obj[i].rokVydani + "</p>")
+                            .append("<p>" + "Cena: " + obj[i].cena + " Kč</p>")
+
+                            .append("<button type=button class='btnMovie' onclick='kupFilm()'>Koupit</button>")
+
+                            .append("<hr>");
+
+
+                    }
+});
+
+
+           /* $("#buttonA").click(function(){
+                alert("fs");
+                $("div").slideToggle();
+            });*/
+
+
+
+
+        });
+
+        function nactiFilmy() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("film").innerHTML = this.responseText;
+                // alert(this.responseText);
+                }
+            };
+            xmlhttp.open("POST", "php/filmy.php?" , true);
+            xmlhttp.send();
+            jePrihlasenUzivatel();
+        }
+
+        function kupFilm() {
+           alert(object[0].nazev)
+        }
+
+
+
+    </script>
+
+    
+</head>
+<body>
+
+<header>
+
+
+    <div class="header" id="wrapper">
+
+        <div id="first">
+            <div id="logo"></div>
+            <h1 id="headText">Online Videopůjčovna</h1>
+        </div>
+
+        <div id = second>
+
+            <span id="pID">Nepřihlášen</span>
+
+            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'"> Přihlásit se </button>
+            <button class="loginBtns" id="odhlasit" onclick="odhlasit()">Odhlásit</button>
+            <a id="stornoRezervace" href="#" style="color:#e1fffa" onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
+
+        </div>
+
+
+    </div>
+
+</header>
+<div class="bodyDiv">
+
+
+
+
+    <nav class="menu">
+        <ul>
+            <li ><a href="index.html">Home</a></li>
+            <li><a class="aktivni">Filmy</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="registrace.html">Registrace</a></li>
+
+        </ul>
+    </nav>
+
+
+
+
+    <div class="content">
+        <h1>Filmy</h1>
+        <div id="film"></div>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+<div id="id01" class="dialog">
+    <form class="dialog-content animate" >
+        <div class="container">
+            <label><b>E-mail</b></label>
+            <input type="text" placeholder="Enter email" name="uemail" id="email" required>
+
+            <label><b>Heslo</b></label>
+            <input type="password" placeholder="Enter heslo" name="uheslo" id="heslo" required>
+
+
+            <button type="button"  id="prihlasit">Prihlasit</button>
+
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Zpět</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+
+<div id="id02" class="dialog">
+    <form class="dialog-content animate" >
+        <div class="container">
+
+            <label><b>Zadejte číslo rezervace</b></label>
+            <input type="text"  name="uemail" id="inputStornoRezervace" required>
+
+            <button type="button"  id="stornovat">Stornovat</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Zpět</button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
