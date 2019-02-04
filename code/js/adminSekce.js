@@ -79,7 +79,12 @@ $(document).ready(function() {
 
 
     $(document).on("click", ".odProgram", function(){
+        var id = $(this).attr("id");
 
+        $.post("php/odeberProgram.php",{id: id},function (data) {
+            alert(data);
+            location.reload();
+        })
     });
 
 
@@ -141,11 +146,6 @@ $(document).ready(function() {
     });
 
 
-
-
-
-
-
     $.post("php/filmy.php",function (data) {
         var obj = JSON.parse(data);
         for(var i = 0; i < obj.length; i++){
@@ -169,12 +169,12 @@ $(document).ready(function() {
 
 
                     $("#program")
-                        .append(obj[i].nazev_filmu)
+                        .append(obj[i].nazev_filmu +  "   ")
                         .append(obj[i].cas + "   ")
-                        .append(obj[i].mesic + "   ")
-                        .append(obj[i].den + "   ")
+                        .append("Měsíc: " + obj[i].mesic + "   ")
+                        .append("Den: " + obj[i].den + "   ")
                         .append("číslo sálu: " + obj[i].id_salu + "   ")
-                        .append("<button id='"+ obj[i].id_filmu +"' class = 'odProgram'> odstranit</button>")
+                        .append("<button id='"+ obj[i].idProgramu +"' class = 'odProgram'> odstranit</button>")
                         .append("<br>")
 
 
