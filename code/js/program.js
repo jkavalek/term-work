@@ -65,8 +65,9 @@ $(document).ready(function () {
 
 
             vyska = settings.rows * settings.seatHeight + 20;
+            sirka = settings.cols * settings.seatHeight + 20;
 
-            $("#holder").css('width', '60%');
+            $("#holder").css('width', sirka + 'px');
             $("#holder").css('height', vyska + 'px');
 
             for (i = 0; i < settings.rows; i++) {
