@@ -16,8 +16,8 @@
     <title>Title</title>
 
     <style>
-        #rezervaceButton {
-            display: none;
+        #rezervaceButton{
+                       display: none;
         }
 
         .programDiv {
@@ -29,6 +29,7 @@
             margin-bottom: 10px;
             display: none;
         }
+
 
         #dnesDiv {
 
@@ -50,16 +51,13 @@
             <h1 id="headText">Rezervační systém - kino</h1>
         </div>
 
-        <div id=second>
+        <div id = second>
 
             <span id="pID">Nepřihlášen</span>
 
-            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'">
-                Přihlásit se
-            </button>
+            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'"> Přihlásit se </button>
             <button class="loginBtns" id="odhlasit" onclick="odhlasit()">Odhlásit</button>
-            <a id="stornoRezervace" href="#" style="color:#e1fffa"
-               onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
+            <a id="stornoRezervace" href="#" style="color:#e1fffa" onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
 
         </div>
 
@@ -72,67 +70,68 @@
 
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li ><a href="index.html">Home</a></li>
             <li><a href="filmy.html">Filmy</a></li>
             <li><a class="aktivni">Program</a></li>
             <li><a href="registrace.html">Registrace</a></li>
 
         </ul>
     </nav>
-    <div class="content" id="vyber">
+<div class="content" id="vyber">
 
 
-        <p>
-            <button id="dnes">dnes</button>
-            <button id="zitra">zitra</button>
-            <button id="den3">pozitri</button>
-            <button id="den4">den4</button>
+    <p>
+        <button id="dnes">dnes</button>
+        <button id="zitra">zitra</button>
+        <button id="den3">pozitri</button>
+        <button id="den4">den4</button>
 
-        </p>
+    </p>
 
-        <div class="programDiv" id="dnesDiv">
+    <div class="programDiv" id="dnesDiv">
 
-            <h2>Program dnes</h2>
-            <hr>
-            <p id="programDnes"></p>
-
-        </div>
-        <div class="programDiv" id="zitraDiv">
-
-            <h2>Program zitra </h2>
-            <hr>
-            <p id="programZitra"></p>
-
-        </div>
-        <div class="programDiv" id="pozitriDiv">
-
-            <h2>Program pozitri </h2>
-            <hr>
-            <p id="programPozitri"></p>
-
-        </div>
-        <div class="programDiv" id="den4Div">
-
-            <h2>Program pozitri </h2>
-            <hr>
-            <p id="program3Dny"></p>
-        </div>
-
+        <h2>Program dnes</h2>
+        <hr>
+        <p id="programDnes"></p>
 
     </div>
+    <div class="programDiv" id="zitraDiv">
+
+        <h2>Program zitra </h2>
+        <hr>
+        <p id="programZitra"></p>
+
+    </div>
+    <div class="programDiv" id="pozitriDiv">
+
+        <h2>Program pozitri </h2>
+        <hr>
+        <p id="programPozitri"></p>
+
+    </div>
+    <div class="programDiv" id="den4Div">
+
+        <h2>Program pozitri </h2>
+        <hr>
+        <p id="program3Dny"></p>
+    </div>
+
+
+
+</div>
 
 
     <div class="content" id="rezervaceButton">
         <h2> Rezervace pro film: </h2>
         <p></p>
         <div id="holder">
-            <ul id="place">
+            <ul  id="place">
             </ul>
         </div>
 
         <div style="clear:both;width:100%">
-            <input type="button" id="btnRezervovat" value="Rezervovat"/>
-            <input type="button" id="btnZpet" value="Zpet"/>
+            <input type="button" id="btnRezervovat" value="Rezervovat" />
+            <input type="button" id="btnZpet" value="Zpet" />
         </div>
 
     </div>
@@ -142,7 +141,7 @@
 
 
 <div id="id01" class="dialog">
-    <form class="dialog-content animate">
+    <form class="dialog-content animate" >
         <div class="container">
             <label><b>E-mail</b></label>
             <input type="text" placeholder="Enter email" name="uemail" id="email" required>
@@ -151,28 +150,26 @@
             <input type="password" placeholder="Enter heslo" name="uheslo" id="heslo" required>
 
 
-            <button type="button" id="prihlasit">Prihlasit</button>
+            <button type="button"  id="prihlasit">Prihlasit</button>
 
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
-                Zpět
-            </button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Zpět</button>
 
         </div>
     </form>
 </div>
 
 
+
+
 <div id="id02" class="dialog">
-    <form class="dialog-content animate">
+    <form class="dialog-content animate" >
         <div class="container">
 
             <label><b>Zadejte číslo rezervace</b></label>
-            <input type="text" name="uemail" id="inputStornoRezervace" required>
+            <input type="text"  name="uemail" id="inputStornoRezervace" required>
 
-            <button type="button" id="stornovat">Stornovat</button>
-            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
-                Zpět
-            </button>
+            <button type="button"  id="stornovat">Stornovat</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Zpět</button>
 
         </div>
     </form>

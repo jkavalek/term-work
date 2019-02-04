@@ -15,7 +15,7 @@
     <script src="js/login.js"></script>
 
 
-    <script src="js/adminSekce.js"></script>
+    <script src="js/adminSekce.js"> </script>
     <style>
         .ui-datepicker {
 
@@ -28,8 +28,10 @@
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
         }
 
-        .ui-timepicker-viewport {
+        .ui-timepicker-viewport{
             width: 216px;
+
+
 
             background: #4b79ff;
             -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
@@ -51,16 +53,13 @@
             <h1 id="headText">Rezervační systém - kino</h1>
         </div>
 
-        <div id=second>
+        <div id = second>
 
             <span id="pID">Nepřihlášen</span>
 
-            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'">
-                Přihlásit se
-            </button>
+            <button class="loginBtns" id="loginMain" onclick="document.getElementById('id01').style.display='block'"> Přihlásit se </button>
             <button class="loginBtns" id="odhlasit" onclick="odhlasit()">Odhlásit</button>
-            <a id="stornoRezervace" href="#" style="color:#e1fffa"
-               onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
+            <a id="stornoRezervace" href="#" style="color:#e1fffa" onclick="document.getElementById('id02').style.display='block'">Stornovat rezervaci</a>
 
         </div>
 
@@ -73,7 +72,7 @@
 
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li ><a href="index.html">Home</a></li>
             <li><a href="filmy.html">Filmy</a></li>
             <li><a href="program.html">Program</a></li>
             <li><a class="aktivni">Registrace</a></li>
@@ -82,61 +81,62 @@
     </nav>
     <div class="content" id="vyber">
 
-        <h2>Přidat film</h2>
+<h2>Přidat film</h2>
 
 
-        <form method="post" action="#">
-            Nazev filmu:<br>
-            <input id="nazev" type="text" name="nazev">
-            <br>
-            Popis:<br>
-            <input id="popis" type="text" name="popis">
-            <br>
-            delka:<br>
-            <input id="delka" type="text" name="delka">
-            <br>
-            video:<br>
-            <input id="video" type="text" name="video">
-            <br>
-            <br><br>
-            <input type="button" value="Přidat film" name="pridatFilm" id="pridatFilmy">
-        </form>
+<form method="post" action="#">
+    Nazev filmu:<br>
+    <input id="nazev" type="text" name="nazev" >
+    <br>
+    Popis:<br>
+    <input id="popis" type="text" name="popis">
+    <br>
+    delka:<br>
+    <input id="delka" type="text" name="delka">
+    <br>
+    video:<br>
+    <input id="video" type="text" name="video">
+    <br>
+    <br><br>
+    <input type="button" value="Přidat film" name="pridatFilm" id="pridatFilmy">
+</form>
 
-        <h2>Filmy: </h2>
-        <div id="film"></div>
+<h2>Filmy: </h2>
+<div id="film"></div>
 
-        <h2>Program: </h2>
-        <div id="program"></div>
-
-
-        <h2>Přidat program</h2>
+<h2>Program: </h2>
+<div id="program"></div>
 
 
-        <form method="post" action="#">
-            Datum:<br>
-            <input id="datumInput" type="text" name="nazev">
-            <br>
-            Čas:<br>
-            <input id="CasInput" type="text" name="popis">
-            <br>
-            film:<br>
+<h2>Přidat program</h2>
 
 
-            <select name="selectFilm" id="selectFilm">
+<form method="post" action="#">
+    Datum:<br>
+    <input id="datumInput" type="text" name="nazev" >
+    <br>
+    Čas:<br>
+    <input id="CasInput" type="text" name="popis">
+    <br>
+    film:<br>
 
-            </select>
-            <br>
-            sal:<br>
-            <select name="selectFilm" id="selectSal">
-                <option value="1">Sál 1</option>
-                <option value="2">Sál 2</option>
-                <option value="3">Sál 3</option>
-            </select>
-            <br>
 
-            <br>
-            <input type="button" value="Přidat program" name="pridatProgram" id="pridatProgram">
-        </form>
+
+    <select name="selectFilm" id="selectFilm">
+
+    </select>
+    <br>
+    sal:<br>
+    <select name="selectFilm" id="selectSal">
+        <option value="1">Sál 1</option>
+        <option value="2">Sál 2</option>
+        <option value="3">Sál 3</option>
+    </select>
+    <br>
+
+    <br>
+    <input type="button" value="Přidat program" name="pridatProgram" id="pridatProgram">
+</form>
 
 
         <h2>Rezervace:</h2>
@@ -154,14 +154,23 @@
         </table>
 
 
-        <button id="exportovatDoXML">Export do xml</button>
+
+    <button id="exportovatDoXML">Export do xml</button>
 
     </div>
 </div>
 
 
+
+
+
+
+
+
+
+
 <div id="id01" class="dialog">
-    <form class="dialog-content animate">
+    <form class="dialog-content animate" >
         <div class="container">
             <label><b>E-mail</b></label>
             <input type="text" placeholder="Enter email" name="uemail" id="email" required>
@@ -170,28 +179,27 @@
             <input type="password" placeholder="Enter heslo" name="uheslo" id="heslo" required>
 
 
-            <button type="button" id="prihlasit">Prihlasit</button>
+            <button type="button"  id="prihlasit">Prihlasit</button>
 
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
-                Zpět
-            </button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Zpět</button>
 
         </div>
     </form>
 </div>
 
 
+
+
+
 <div id="id02" class="dialog">
-    <form class="dialog-content animate">
+    <form class="dialog-content animate" >
         <div class="container">
 
             <label><b>Zadejte číslo rezervace</b></label>
-            <input type="text" name="uemail" id="inputStornoRezervace" required>
+            <input type="text"  name="uemail" id="inputStornoRezervace" required>
 
-            <button type="button" id="stornovat">Stornovat</button>
-            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
-                Zpět
-            </button>
+            <button type="button"  id="stornovat">Stornovat</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Zpět</button>
 
         </div>
     </form>

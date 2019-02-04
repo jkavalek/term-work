@@ -1,19 +1,22 @@
-$(document).ready(function () {
+$(document).ready(function() {
+
 
 
     $.post("php/SessionPHP.php",
 
         function (data) {
 
-            if (data == '') {
+            if (data=='') {
                 alert("Nemate oprávnění pro přístup do admin sekce");
                 window.location.replace("index.html");
             }
         });
 
 
+
+
     $("#exportovatDoXML").click(function () {
-        exporttoxml();
+       exporttoxml();
     });
 
     function exporttoxml() {
@@ -26,24 +29,28 @@ $(document).ready(function () {
     }
 
 
+
     $.post("php/nactiRezervace.php"
-        , function (data) {
+        ,function (data) {
 
 
             var obj = JSON.parse(data);
-            for (var i = 0; i < obj.length; i++) {
+            for(var i = 0; i < obj.length; i++){
 
                 $(".tg").append("<tr>" +
-                    "<td>" + obj[i].id_rezervace + "</td>" +
-                    "<td>" + obj[i].sedadlo1 + "</td>" +
-                    "<td>" + obj[i].sedadlo2 + "</td>" +
-                    "<td>" + obj[i].sedadlo3 + "</td>" +
-                    "<td>" + obj[i].sedadlo4 + "</td>" +
-                    "<td>" + obj[i].sedadlo5 + "</td>" +
-                    "<td>" + obj[i].nazevFilmu + "</td>" +
-                    "<td>" + "<button id='" + obj[i].id_rezervace + "' class = 'odstranit'> stornovat  </button>" + "</td>" +
+                    "<td>"+ obj[i].id_rezervace +"</td>"+
+                    "<td>"+ obj[i].sedadlo1+ "</td>"+
+                    "<td>"+ obj[i].sedadlo2+ "</td>"+
+                    "<td>"+ obj[i].sedadlo3+ "</td>"+
+                    "<td>"+ obj[i].sedadlo4+ "</td>"+
+                    "<td>"+ obj[i].sedadlo5+ "</td>"+
+                    "<td>"+  obj[i].nazevFilmu + "</td>"+
+                    "<td>"+  "<button id='"+ obj[i].id_rezervace +"' class = 'odstranit'> stornovat  </button>" + "</td>"+
 
                     "</tr>");
+
+
+
 
 
             }
@@ -53,8 +60,8 @@ $(document).ready(function () {
 
     var id;
 
-    $(document).on("click", ".odstranit", function () {
-        $.post("php/stornoRezervace.php", {cisloRezervace: $(this).attr("id")}, function (data) {
+    $(document).on("click", ".odstranit", function(){
+        $.post("php/stornoRezervace.php",{cisloRezervace:$(this).attr("id")},function (data) {
             window.location.reload(true);
         });
     });
@@ -62,21 +69,25 @@ $(document).ready(function () {
 
     $(".menu li:last").addClass("aktivni");
 
-    $(document).on("click", ".od", function () {
+    $(document).on("click", ".od", function(){
         var id = $(this).attr("id");
 
-        $.post("php/zneaktivniFilm.php", {id: id}, function (data) {
+        $.post("php/zneaktivniFilm.php",{id: id},function (data) {
             location.reload();
         })
     });
 
 
-    $(document).on("click", ".odProgram", function () {
+    $(document).on("click", ".odProgram", function(){
 
     });
 
 
-    $("#pridatFilmy").click(function () {
+
+
+
+
+    $("#pridatFilmy").click(function() {
         var nazev = $("#nazev").val();
         var popis = $("#popis").val();
         var delka = $("#delka").val();
@@ -90,7 +101,7 @@ $(document).ready(function () {
                 popis: popis,
                 delka: delka,
                 video: video
-            }, function (data) {
+            }, function(data) {
                 alert(data);
 
                 if (data === 'OK') {
@@ -103,14 +114,14 @@ $(document).ready(function () {
         }
     });
 
-    $("#pridatProgram").click(function () {
+    $("#pridatProgram").click(function() {
         var datum = $("#datumInput").val();
         var cas = $("#CasInput").val();
         var film = $("#selectFilm").val();
         var sal = $("#selectSal").val();
 
 
-        if (datum == '' || cas == '') {
+        if (datum == '' || cas == '' ) {
             alert("Vyplnte všechna pole ");
 
         } else {
@@ -119,7 +130,7 @@ $(document).ready(function () {
                 cas: cas,
                 film: film,
                 sal: sal
-            }, function (data) {
+            }, function(data) {
 
                 if (data == 'OK') {
                     $("form")[1].reset();
@@ -130,15 +141,20 @@ $(document).ready(function () {
     });
 
 
-    $.post("php/filmy.php", function (data) {
+
+
+
+
+
+    $.post("php/filmy.php",function (data) {
         var obj = JSON.parse(data);
-        for (var i = 0; i < obj.length; i++) {
+        for(var i = 0; i < obj.length; i++){
 
 
-            $("#selectFilm").append("<option value=" + obj[i].id_filmu + ">" + obj[i].nazev + "</option>");
+            $("#selectFilm").append("<option value="+obj[i].id_filmu+">" + obj[i].nazev  + "</option>");
             $("#film")
                 .append(obj[i].nazev + " ")
-                .append("<button id='" + obj[i].id_filmu + "' class = 'od'> odstranit  </button>")
+                .append("<button id='"+ obj[i].id_filmu +"' class = 'od'> odstranit  </button>")
                 .append("<br>")
         }
 
@@ -149,7 +165,7 @@ $(document).ready(function () {
                 var d = new Date();
 
 
-                for (var i = 0; i < obj.length; i++) {
+                for(var i = 0; i < obj.length; i++) {
 
 
                     $("#program")
@@ -158,12 +174,19 @@ $(document).ready(function () {
                         .append(obj[i].mesic + "   ")
                         .append(obj[i].den + "   ")
                         .append("číslo sálu: " + obj[i].id_salu + "   ")
-                        .append("<button id='" + obj[i].id_filmu + "' class = 'odProgram'> odstranit</button>")
+                        .append("<button id='"+ obj[i].id_filmu +"' class = 'odProgram'> odstranit</button>")
                         .append("<br>")
+
+
 
 
                 }
             });
+
+
+
+
+
 
 
         $("#CasInput").timepicker({
@@ -175,27 +198,30 @@ $(document).ready(function () {
         });
 
 
+
+
         $.datepicker.regional['cs'] = {
             closeText: 'Cerrar',
             prevText: 'Předchozí',
             nextText: 'Další',
             currentText: 'Hoy',
-            monthNames: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'],
-            monthNamesShort: ['Le', 'Ún', 'Bř', 'Du', 'Kv', 'Čn', 'Čc', 'Sr', 'Zá', 'Ří', 'Li', 'Pr'],
-            dayNames: ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'],
-            dayNamesShort: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
-            dayNamesMin: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
+            monthNames: ['Leden','Únor','Březen','Duben','Květen','Červen', 'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'],
+            monthNamesShort: ['Le','Ún','Bř','Du','Kv','Čn', 'Čc','Sr','Zá','Ří','Li','Pr'],
+            dayNames: ['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota'],
+            dayNamesShort: ['Ne','Po','Út','St','Čt','Pá','So'],
+            dayNamesMin: ['Ne','Po','Út','St','Čt','Pá','So'],
             weekHeader: 'Sm',
             dateFormat: 'yy-mm-dd',
             firstDay: 1,
             isRTL: false,
             showMonthAfterYear: false,
-            yearSuffix: ''
-        };
+            yearSuffix: ''};
 
         $.datepicker.setDefaults($.datepicker.regional['cs']);
 
-        $("#datumInput").datepicker({});
+        $("#datumInput").datepicker({
+
+        });
 
     });
 });

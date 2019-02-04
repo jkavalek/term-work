@@ -1,16 +1,19 @@
 <?php
 require('Db.php');
-Db::connect('127.0.0.1', 'mydb', 'root', '');
+Db::connect();
 
 
-$kontrola = Db::queryAll('select * from rezervace where cisloRezervace = ?', $_POST['cisloRezervace']);
 
-if (isset($kontrola[0]['cisloRezervace'])) {
+$kontrola = Db::queryAll('select * from rezervace where cisloRezervace = ?',$_POST['cisloRezervace']);
+
+if(isset($kontrola[0]['cisloRezervace'])){
 
 
-    Db::query('delete from rezervace where cisloRezervace = ?', $_POST['cisloRezervace']);
-    echo 'rezervace stornovana';
-} else echo 'rezervace nenalezena';
+Db::query('delete from rezervace where cisloRezervace = ?', $_POST['cisloRezervace']);
+echo 'rezervace stornovana';
+}
+
+else echo 'rezervace nenalezena';
 
 
 

@@ -1,10 +1,14 @@
 <?php
 session_start();
 require('Db.php');
-Db::connect('127.0.0.1', 'mydb', 'root', '');
+Db::connect();
 
 
-if ($_POST) {
+
+
+
+if ($_POST)
+{
     $uzivatel = Db::queryAll('
                 SELECT *
                 FROM uzivatele
@@ -12,19 +16,25 @@ if ($_POST) {
         ', $_POST['email1'], sha1($_POST['password1']));
 
 
-    if (!$uzivatel) {
+    if (!$uzivatel){
         echo 'Neplatné uživatelské jméno nebo heslo';
 
 
-    } else {
+    }
+
+        else
+    {
 
         echo 'OK';
 
-        $_SESSION['jmeno'] = htmlspecialchars($uzivatel[0]['jmeno']);
+        $_SESSION['jmeno'] =   htmlspecialchars($uzivatel[0]['jmeno']);
         $_SESSION['uzivatel_email'] = $_POST['email1'];
         $_SESSION['uzivatel_id'] = $uzivatel[0]['uzivatele_id'];
 
         $_SESSION['uzivatel_opravneni'] = $uzivatel[0]['admin'];
+
+
+
 
 
     }

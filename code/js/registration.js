@@ -1,7 +1,12 @@
-$(document).ready(function () {
 
 
-    $("#editaceUdaju").click(function () {
+
+$(document).ready(function() {
+
+
+
+
+    $("#editaceUdaju").click(function() {
 
 
         var name = $("#nameEdit").val();
@@ -11,35 +16,34 @@ $(document).ready(function () {
         var telefon = $("#telefonEdit").val();
 
 
-        if (name != '') {
+
+        if(name != ''){
             $.post("php/registrace.php", {
                 name1: name
-            }, function (data) {
-                alert(data);
+            }, function(data) {
+        alert(data);
             });
         }
 
-        if (email != '') {
+        if(email != ''){
             $.post("php/registrace.php", {
 
                 email1: email
-            }, function (data) {
+            }, function(data) {
 
             });
         }
 
-        if (cpassword != '') {
+        if(cpassword != ''){
             if ((password.length) < 5) {
-                alert("Heslo musí být dlouhé alespon 5 znaků");
-            }
+                alert("Heslo musí být dlouhé alespon 5 znaků");}
             else if (!(password).match(cpassword)) {
-                alert("Hesla se neshodují");
-            }
+                alert("Hesla se neshodují");}
 
             $.post("php/registrace.php", {
 
                 password: password
-            }, function (data) {
+            }, function(data) {
 
             });
         }
@@ -48,7 +52,8 @@ $(document).ready(function () {
     });
 
 
-    $("#registraceButton").click(function () {
+
+    $("#registraceButton").click(function() {
         var name = $("#name").val();
         var email = $("#emeail").val();
         var password = $("#password").val();
@@ -64,11 +69,12 @@ $(document).ready(function () {
                 name1: name,
                 email1: email,
                 password1: password
-            }, function (data) {
+            }, function(data) {
                 alert(data);
             });
         }
     });
+
 
 
 });

@@ -1,49 +1,48 @@
-#holder {
-    border-style: solid;
-    border-top-color: red;
-    padding-top: 10px;
-    margin-left: 20%;
-    background-color: white;
+#holder{
+border-style: solid;
+border-top-color: red;
+padding-top: 10px;
+margin-left: 20%;
+background-color: white;
 }
-
 #place {
-    position: relative;
-    margin: 7px;
+    position:relative;
+    margin:7px;
 }
-
-#place a {
-    font-size: 0.6em;
+#place a{
+    font-size:0.6em;
 }
-
-#place li {
+#place li
+{
     list-style: none outside none;
     position: absolute;
 }
-
-#place li:hover {
-    background-color: yellow;
-    cursor: pointer;
+#place li:hover
+{
+    background-color:yellow;
+    cursor: pointer
+;
 }
-
-#place .seat {
+#place .seat{
     background: #4056ff;
-    height: 33px;
-    width: 33px;
-    display: block;
+    height:33px;
+    width:33px;
+    display:block;
 }
-
-#place .selectedSeat {
+#place .selectedSeat
+{
     background: #ff0000;
 }
-
-#place .selectingSeat {
+#place .selectingSeat
+{
     background: #dcda42;
 }
 
-#seatDescription li {
-    verticle-align: middle;
+
+#seatDescription li{
+    verticle-align:middle;
     list-style: none outside none;
-    padding-left: 35px;
-    height: 35px;
-    float: left;
+    padding-left:35px;
+    height:35px;
+    float:left;
 }

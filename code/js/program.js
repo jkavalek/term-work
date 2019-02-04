@@ -42,8 +42,8 @@ $(document).ready(function () {
 
                 var obj = JSON.parse(data);
 
-                settings.rows = obj[0].sloupce;
-                settings.cols = obj[0].radky;
+                settings.rows = obj[0].pocetRad;
+                settings.cols = obj[0].pocetSedadelVRade;
             });
 
 
@@ -88,6 +88,7 @@ $(document).ready(function () {
         };
 
         init();
+
 
 
         $("body").on('click', '.' + settings.seatCss, function () {

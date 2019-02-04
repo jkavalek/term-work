@@ -42,9 +42,9 @@ CREATE TABLE `filmy` (
 --
 
 INSERT INTO `filmy` (`id_filmu`, `nazev`, `popis`, `delkaFilmu`, `trailer`, `aktivni`) VALUES
-(4, 'Bajkeři', 'Nevlastní bratři Jáchym a David společně s kamarádem Sašou tráví většinu času ve světě sociálních sítí. Vztahy pro ně představují chaty s virtuálními dívkami, které nikdy neviděli, obživu falešná módní show, v níž se předstírá něco, co není a největší životní problém pak vybitý mobil nebo nefunkční wifi. Na nátlak rodičů jsou donuceni vydat se pod vedením Davidovy půvabné „macechy“ Terezy na dvousetkilometrový cyklovýlet. S překvapením zjišťují, že tam venku je skutečný svět, v němž život znamená víc než status na facebooku, opravdové dívky vypadají	…', '01:25:00', 'https://www.youtube.com/embed/Bpvnvz2Y5os', 1),
-(5, 'Earth: Den na zázračné planetě', 'Snímek z produkce BBC Earth Films, tvůrců Zázračné planety (od r. 2006), představuje divákům všech věkových kategorií nezapomenutelné hrdiny: mládě zebry, snažící se překonat rozvodněnou řeku; pandu, která usměrňuje svého hravého potomka; rodinu vorvaňů, s oblibou pospávající ve svislé poloze; lenochoda toužícího po lásce a mnoho dalších. Během jediného dne putujeme spolu se sluncem od nejvyšších hor k těm nejvzdálenějším ostrovům, z hlubin exotické džungle až do labyrintů velkoměst. V každém koutě Země nacházíme fascinující obyvatele, k jejichž dobrodružstvím se	…', '02:18:00', 'https://www.youtube.com/embed/ZbTbHNtYV_4', 1),
-(6, 'Milada', 'Film Milada je inspirován osudem a životem JUDr. Milady Horákové, který se dotkl mnoha lidí. Odehrává se v letech 1937 – 1950 a vypráví příběh ženy, v jejíž osobnost a životě byly morální principy zakořeněny tak silně, že se často ve svých rozhodnutích řídila více svým svědomím než srdcem, a to i za cenu ohrožení vlastní rodiny a sebe sama. Milada Horáková byla popravena 27. června 1950 i přesto, že tehdejší prezident Československé republiky dostal mnoho žádostí o udělení milosti.	O její milost žádali např. Albert Einstein, Winston Churchill nebo Eleanor Rooseveltová. Ústředními tématy filmu jsou svoboda, boj za demokracii, pravda, láska, naděje, moc a oběť, které jsou velmi aktuální i dnes. Cílem filmu je přiblížit osobnost Milady Horákové, její život a osud, nejširšímu publiku v České republice a v zahraničí.', '01:50:00', 'https://www.youtube.com/embed/8L2W3hICJ6E', 1);
+(4, 'Robin Hood', 'Robin (Taron Egerton), válkou zocelený bojovník, se vrací z křižáckých výprav, aby společně s svým maurským přítelem Malým Johnem (Jamie Foxx) povstal proti zkorumpované anglické vládě v moderní vzrušující akční podívané plné zběsilých bojů, epické válečné choreografie i nadčasové romantiky.(Vertical Ent.)', '01:57:00', 'https://www.youtube.com/embed/PiwLc2KaBBc', 1),
+(5, 'Aquaman', 'Filmový příběh o populárním superhrdinovi ze stáje DC Comics odhaluje původ Arthura Curryho (Jason Momoa), napůl člověka, napůl obyvatele bájné Atlantidy, kterého jeho životní cesta přiměje čelit pravdě nejen o tom, kým ve skutečnosti je, ale zároveň prověří, zda-li je hoden stát se tím, pro co byl zrozen… králem.', '02:18:00', 'https://www.youtube.com/embed/WDkg3h8PCVU', 1),
+(6, 'Bohemian Rhapsody', 'Film Bohemian Rhapsody je oslavou rockové skupiny Queen, jejich hudby a především Freddieho Mercuryho, který svou tvorbou i životem vzdoroval všem myslitelným stereotypům, díky čemuž se stal jedním z nejvýraznějších umělců na světě. Snímek mapuje raketový vzestup nekonvenční skupiny prostřednictvím jejich revolučního zvuku a ikonických písní, jako jsou „We Will Rock You“, „We Are the Champions“ nebo právě „Bohemian Rhapsody“. Jejich příběh začíná bleskovým startem, pokračuje neřízenou životní spirálou a vrcholí nezapomenutelným, strhujícím vystoupením na koncertu Live Aid v roce 1985. Na jeho	pódiu Queen v čele se rtuťovitým Freddiem předvedli jednu z největších show v historii rocku. Jejich hudba byla a stále je ohromnou inspirací pro celý svět.', '02:10:00', 'https://www.youtube.com/embed/pQd319czy30', 1);
 
 -- --------------------------------------------------------
 
@@ -65,12 +65,12 @@ CREATE TABLE `program` (
 --
 
 INSERT INTO `program` (`id_programu`, `datum`, `cas`, `film_id_filmu`, `sal_id_salu`) VALUES
-(27, '2017-12-13', '22:00:00', 5, 2),
-(28, '2017-12-11', '13:30:00', 4, 1),
-(29, '2017-12-10', '15:00:00', 5, 1),
-(30, '2017-12-10', '14:00:00', 5, 3),
-(31, '2017-12-12', '22:30:00', 6, 3),
-(32, '2017-12-10', '20:00:00', 4, 2);
+(27, '2019-04-02', '22:00:00', 5, 2),
+(28, '2019-04-02', '13:30:00', 4, 1),
+(29, '2019-04-03', '15:00:00', 5, 1),
+(30, '2019-04-03', '14:00:00', 5, 3),
+(31, '2019-04-04', '22:30:00', 6, 3),
+(32, '2019-04-04', '20:00:00', 4, 2);
 
 -- --------------------------------------------------------
 

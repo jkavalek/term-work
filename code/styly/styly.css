@@ -326,7 +326,7 @@ nav.menu {
 
     @media print {
 
-        body * {
+        body *, button * {
             visibility: hidden;
         }
 
